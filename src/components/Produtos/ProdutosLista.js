@@ -1,9 +1,8 @@
-// src/components/ProductsList.js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const ProductsList = () => {
-  const [produtos, setProducts] = useState([]);
+const ProdutosLista = () => {
+  const [produtos, setProdutos] = useState([]);
   const [loading, setLoading] = useState(true); 
   const [error, setError] = useState(null);
 
@@ -11,7 +10,7 @@ const ProductsList = () => {
     axios
       .get('http://localhost:3000/api/produtos')  
       .then((response) => {
-        setProducts(response.data);  
+        setProdutos(response.data);  
         setLoading(false);          
       })
       .catch((err) => {
@@ -38,7 +37,9 @@ const ProductsList = () => {
             <p>{produto.descricao}</p>
             <p>Preço: R${produto.preco}</p>
             <p>Estoque: {produto.estoque}</p>
-            {/* Aqui você pode adicionar lógica para exibir as imagens, se necessário */}
+            {produto.images && produto.images.map((image, index) => (
+              <img key={index} src={image.url} alt={`Imagem do produto ${produto.nome}`} />
+            ))}
           </li>
         ))}
       </ul>
@@ -46,4 +47,4 @@ const ProductsList = () => {
   );
 };
 
-export default ProductsList;
+export default ProdutosLista;
