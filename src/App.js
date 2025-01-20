@@ -1,6 +1,7 @@
 import './App.css';
-import ProdutosLista from './components/Produtos/ProdutosLista';
-import ProdutoForm from  './components/Produtos/produtoform';
+import ProdutosLista from './pages/Produtos/ProdutosLista';
+import ProdutoForm from  './pages/Produtos/produtoform';
+
 const App = () => {
   return (
     <div>

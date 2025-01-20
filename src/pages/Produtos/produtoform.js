@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { createProduto } from '../../api/produtosapi';
+import { createProduto } from '../../utils/produtosapi';
 import axios from 'axios';
 
 const ProdutoForm = () => {
