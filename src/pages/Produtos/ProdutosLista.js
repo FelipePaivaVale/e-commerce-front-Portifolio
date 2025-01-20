@@ -37,9 +37,18 @@ const ProdutosLista = () => {
             <p>{produto.descricao}</p>
             <p>Preço: R${produto.preco}</p>
             <p>Estoque: {produto.estoque}</p>
-            {produto.images && produto.images.map((image, index) => (
-              <img key={index} src={image.url} alt={`Imagem do produto ${produto.nome}`} />
-            ))}
+            {produto.images && produto.images.length > 0 ? (
+              produto.images.map((image, index) => (
+                <img 
+                  key={index} 
+                  src={image} 
+                  alt={`Imagem do produto ${produto.nome}`} 
+                  style={{ width: '200px', height: 'auto', margin: '10px 0' }} 
+                />
+              ))
+            ) : (
+              <p>Sem imagens disponíveis</p>
+            )}
           </li>
         ))}
       </ul>
